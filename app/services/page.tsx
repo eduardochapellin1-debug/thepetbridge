@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 import resources from "@/app/data/resources.json";
 
 type Categoria = "Espana" | "Internacional";
@@ -50,9 +51,10 @@ function ResourceCard({ nombre, descripcion, link, categoria }: ResourceCardProp
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
+        className="inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
       >
         Ver recurso
+        <ExternalLink size={14} aria-hidden="true" />
       </a>
     </article>
   );
