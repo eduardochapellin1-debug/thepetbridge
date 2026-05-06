@@ -65,8 +65,16 @@ export default function Home() {
         </header>
 
         <main className="space-y-10">
-          <section className="flex min-h-28 items-center justify-center rounded-xl border-2 border-dashed border-sky-200 bg-sky-50/60 text-sm font-semibold tracking-wide text-sky-700">
-            Partnership Space
+          <section className="flex min-h-28 flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/80 px-4 py-5 text-center">
+            <p className="text-sm font-semibold text-slate-700">
+              ¿Quieres que tu clínica o servicio aparezca aquí?
+            </p>
+            <a
+              href="mailto:tuemail@ejemplo.com?subject=Inter%C3%A9s%20en%20Partnership%20-%20The%20Pet%20Bridge"
+              className="mt-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
+            >
+              Asóciate con nosotros
+            </a>
           </section>
 
           <section className="rounded-3xl border border-emerald-100 bg-white/85 px-6 py-10 shadow-sm md:px-10">
@@ -172,8 +180,16 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="flex min-h-28 items-center justify-center rounded-xl border-2 border-dashed border-sky-200 bg-sky-50/60 text-sm font-semibold tracking-wide text-sky-700">
-            Partnership Space
+          <section className="flex min-h-28 flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/80 px-4 py-5 text-center">
+            <p className="text-sm font-semibold text-slate-700">
+              ¿Quieres que tu clínica o servicio aparezca aquí?
+            </p>
+            <a
+              href="mailto:tuemail@ejemplo.com?subject=Inter%C3%A9s%20en%20Partnership%20-%20The%20Pet%20Bridge"
+              className="mt-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
+            >
+              Asóciate con nosotros
+            </a>
           </section>
 
           <section className="grid gap-5 md:grid-cols-3">
@@ -226,8 +242,16 @@ export default function Home() {
         </main>
 
         <footer className="mt-12 space-y-6 border-t border-sky-100 pt-6 text-center text-sm text-slate-500">
-          <div className="flex min-h-24 items-center justify-center rounded-xl border-2 border-dashed border-sky-200 bg-sky-50/60 text-sm font-semibold tracking-wide text-sky-700">
-            Partnership Space
+          <div className="flex min-h-24 flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/80 px-4 py-5 text-center">
+            <p className="text-sm font-semibold text-slate-700">
+              ¿Quieres que tu clínica o servicio aparezca aquí?
+            </p>
+            <a
+              href="mailto:tuemail@ejemplo.com?subject=Inter%C3%A9s%20en%20Partnership%20-%20The%20Pet%20Bridge"
+              className="mt-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
+            >
+              Asóciate con nosotros
+            </a>
           </div>
           <p>{content.footer}</p>
         </footer>
