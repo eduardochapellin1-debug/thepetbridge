@@ -40,6 +40,12 @@ export default function Home() {
             <Link href="/travel" className="transition hover:text-emerald-600">
               {content.nav.euTravel}
             </Link>
+            <Link
+              href="/directorio"
+              className="transition hover:text-emerald-600"
+            >
+              Directorio
+            </Link>
             <button
               type="button"
               onClick={() => setLocale((prev) => (prev === "en" ? "es" : "en"))}
@@ -74,11 +80,10 @@ export default function Home() {
           <section className="grid gap-5 md:grid-cols-3">
             {cardKeys.map((cardKey) => {
               const Icon = cardIcons[cardKey];
-              return (
-                <article
-                  key={cardKey}
-                  className="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm"
-                >
+              const isDirectoryCard = cardKey === "adopt" || cardKey === "wellness";
+
+              const cardContent = (
+                <>
                   <div className="mb-4 inline-flex rounded-full bg-emerald-50 p-3 text-emerald-700">
                     <Icon size={24} aria-hidden="true" />
                   </div>
@@ -88,6 +93,32 @@ export default function Home() {
                   <p className="text-sm leading-6 text-slate-600">
                     {content.cards[cardKey].description}
                   </p>
+                  {isDirectoryCard ? (
+                    <p className="mt-4 text-sm font-semibold text-emerald-700">
+                      Ver directorio
+                    </p>
+                  ) : null}
+                </>
+              );
+
+              if (isDirectoryCard) {
+                return (
+                  <Link
+                    key={cardKey}
+                    href="/directorio"
+                    className="block rounded-2xl border border-sky-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                  >
+                    {cardContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <article
+                  key={cardKey}
+                  className="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm"
+                >
+                  {cardContent}
                 </article>
               );
             })}
