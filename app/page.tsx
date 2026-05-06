@@ -95,7 +95,7 @@ export default function Home() {
                   </p>
                   {isDirectoryCard ? (
                     <p className="mt-4 text-sm font-semibold text-emerald-700">
-                      Ver directorio
+                      Ver servicios
                     </p>
                   ) : null}
                 </>
@@ -105,7 +105,7 @@ export default function Home() {
                 return (
                   <Link
                     key={cardKey}
-                    href="/directorio"
+                    href="/services"
                     className="block rounded-2xl border border-sky-100 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
                   >
                     {cardContent}
