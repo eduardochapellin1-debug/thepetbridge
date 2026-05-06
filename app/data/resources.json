@@ -22,5 +22,29 @@
     "descripcion": "Productos lideres en bienestar y reduccion de estres para perros y gatos.",
     "link": "https://feliway.com",
     "categoria": "Internacional"
+  },
+  {
+    "nombre": "Vive Pet Resort",
+    "descripcion": "Resort de lujo para mascotas en Madrid. Guarderia, hotel y piscina.",
+    "link": "https://vivepetresort.com",
+    "categoria": "Espana"
+  },
+  {
+    "nombre": "Dondersteen Resort",
+    "descripcion": "Hotel canino premium en Barcelona con 10.000m2 de areas libres.",
+    "link": "https://dondersteen-resort.com",
+    "categoria": "Espana"
+  },
+  {
+    "nombre": "IATI Escapadas",
+    "descripcion": "Seguro de viaje con cobertura especifica para mascotas en Espana y Europa.",
+    "link": "https://iatiseguros.com",
+    "categoria": "Internacional"
+  },
+  {
+    "nombre": "Heymondo",
+    "descripcion": "Seguro de viaje internacional con asistencia veterinaria incluida.",
+    "link": "https://heymondo.es",
+    "categoria": "Internacional"
   }
 ]
