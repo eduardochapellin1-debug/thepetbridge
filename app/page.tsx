@@ -73,6 +73,80 @@ export default function Home() {
             </p>
           </section>
 
+          <section className="rounded-3xl border border-sky-100 bg-white/90 px-6 py-10 shadow-sm md:px-10">
+            <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
+              Todo lo que tu mascota necesita para viajar
+            </h2>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              <article className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-md">
+                <img
+                  src="https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=1000&q=80"
+                  alt="Mascota viajando con seguridad"
+                  className="h-44 w-full object-cover"
+                />
+                <div className="p-5">
+                  <h3 className="mb-2 text-xl font-semibold text-slate-900">
+                    Seguros de Viaje
+                  </h3>
+                  <p className="mb-4 text-sm leading-6 text-slate-600">
+                    Proteccion total en Europa
+                  </p>
+                  <Link
+                    href="/directorio"
+                    className="inline-block rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500"
+                  >
+                    Comparar Seguros
+                  </Link>
+                </div>
+              </article>
+
+              <article className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-md">
+                <img
+                  src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80"
+                  alt="Perro feliz en un jardin"
+                  className="h-44 w-full object-cover"
+                />
+                <div className="p-5">
+                  <h3 className="mb-2 text-xl font-semibold text-slate-900">
+                    Residencias Caninas
+                  </h3>
+                  <p className="mb-4 text-sm leading-6 text-slate-600">
+                    Los mejores hoteles pet-friendly
+                  </p>
+                  <Link
+                    href="/directorio"
+                    className="inline-block rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500"
+                  >
+                    Buscar Hotel
+                  </Link>
+                </div>
+              </article>
+
+              <article className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-md">
+                <img
+                  src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
+                  alt="Clinica veterinaria y estetoscopio"
+                  className="h-44 w-full object-cover"
+                />
+                <div className="p-5">
+                  <h3 className="mb-2 text-xl font-semibold text-slate-900">
+                    Clinicas 24h
+                  </h3>
+                  <p className="mb-4 text-sm leading-6 text-slate-600">
+                    Asistencia veterinaria inmediata
+                  </p>
+                  <Link
+                    href="/directorio"
+                    className="inline-block rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500"
+                  >
+                    Ver Clinicas
+                  </Link>
+                </div>
+              </article>
+            </div>
+          </section>
+
           <section className="flex min-h-28 items-center justify-center rounded-xl border-2 border-dashed border-sky-200 bg-sky-50/60 text-sm font-semibold tracking-wide text-sky-700">
             Partnership Space
           </section>
