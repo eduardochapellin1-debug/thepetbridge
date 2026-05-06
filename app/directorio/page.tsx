@@ -64,6 +64,21 @@ export default function DirectorioPage() {
           </p>
         </section>
 
+        <section className="mb-6 rounded-2xl border border-sky-100 bg-sky-50/40 p-6 shadow-sm">
+          <h2 className="mb-3 text-2xl font-semibold text-slate-900">
+            Servicios y Cuidados para Mascotas en Espana e Internacional
+          </h2>
+          <p className="leading-7 text-slate-600">
+            En The Pet Bridge, te ayudamos a encontrar los mejores recursos para
+            tu companero. Desde <strong>residencias caninas en Madrid y Barcelona</strong>{" "}
+            hasta los <strong>seguros de viaje para mascotas</strong> mas fiables
+            de <strong>2026</strong>. Nuestro directorio curado incluye{" "}
+            <strong>hospitales veterinarios 24h</strong> y{" "}
+            <strong>servicios de cuidadores de confianza</strong> para que viajar
+            por Europa con tu perro o gato sea sencillo y seguro.
+          </p>
+        </section>
+
         <section className="mb-6 flex flex-wrap gap-3">
           {filterOptions.map((filtro) => {
             const isActive = filtroActivo === filtro;
