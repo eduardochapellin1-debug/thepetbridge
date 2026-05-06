@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, type FormEvent } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { PawPrint, Plane, Stethoscope } from "lucide-react";
 import { contentByLocale, type Locale } from "./content";
 
@@ -14,7 +15,14 @@ const cardIcons = {
 
 export default function Home() {
   const [locale, setLocale] = useState<Locale>("en");
+  const [searchTerm, setSearchTerm] = useState("");
+  const router = useRouter();
   const content = useMemo(() => contentByLocale[locale], [locale]);
+
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    router.push("/directorio");
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-emerald-50 to-white text-slate-800">
@@ -71,6 +79,23 @@ export default function Home() {
             <p className="max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
               {content.hero.subtitle}
             </p>
+            <form onSubmit={handleSearch} className="mt-6 w-full max-w-3xl">
+              <div className="flex w-full flex-col gap-3 rounded-2xl bg-white p-2 shadow-md sm:flex-row">
+                <input
+                  type="text"
+                  value={searchTerm}
+                  onChange={(event) => setSearchTerm(event.target.value)}
+                  placeholder="¿Qué servicio buscas? (ej: seguros, Madrid, clínicas...)"
+                  className="w-full rounded-xl border border-sky-100 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-100"
+                />
+                <button
+                  type="submit"
+                  className="rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-500 sm:min-w-28"
+                >
+                  Buscar
+                </button>
+              </div>
+            </form>
           </section>
 
           <section className="rounded-3xl border border-sky-100 bg-white/90 px-6 py-10 shadow-sm md:px-10">
