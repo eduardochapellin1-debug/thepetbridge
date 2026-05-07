@@ -1,10 +1,10 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { PawPrint, Plane, Stethoscope } from "lucide-react";
-import { contentByLocale, type Locale } from "./content";
+import { useI18n, type Locale } from "@/app/i18n/I18nProvider";
 
 const cardKeys = ["adopt", "wellness", "travelLegal"] as const;
 const cardIcons = {
@@ -14,15 +14,16 @@ const cardIcons = {
 } as const;
 
 export default function Home() {
-  const [locale, setLocale] = useState<Locale>("en");
+  const { locale, setLocale, messages } = useI18n();
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
-  const content = useMemo(() => contentByLocale[locale], [locale]);
 
   const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     router.push("/directorio");
   };
+
+  const localeOptions: Locale[] = ["es", "en", "fr"];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-emerald-50 to-white text-slate-800">
@@ -32,60 +33,74 @@ export default function Home() {
             <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-emerald-300 to-sky-300 text-sm font-semibold text-slate-700">
               TPB
             </div>
-            <p className="text-lg font-semibold">The Pet Bridge</p>
+            <p className="text-lg font-semibold">{messages.home.header.brand}</p>
           </div>
 
           <nav className="flex flex-wrap items-center gap-5 text-sm font-medium text-slate-700">
             <Link href="/adopt" className="transition hover:text-emerald-600">
-              {content.nav.adopt}
+              {messages.home.header.adopt}
             </Link>
             <Link
               href="/services"
               className="transition hover:text-emerald-600"
             >
-              {content.nav.services}
+              {messages.home.header.services}
             </Link>
             <Link href="/travel" className="transition hover:text-emerald-600">
-              {content.nav.euTravel}
+              {messages.home.header.euTravel}
             </Link>
             <Link
               href="/directorio"
               className="transition hover:text-emerald-600"
             >
-              Directorio
+              {messages.home.header.directory}
             </Link>
-            <button
-              type="button"
-              onClick={() => setLocale((prev) => (prev === "en" ? "es" : "en"))}
-              className="rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-semibold tracking-wide text-sky-700 transition hover:bg-sky-100"
-            >
-              {content.languageButton}
-            </button>
+            <div className="flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-3 py-1.5 text-xs font-semibold text-sky-700">
+              <span className="text-[11px] uppercase tracking-wide">
+                {messages.home.header.language}
+              </span>
+              <div className="flex items-center gap-1 text-[11px] font-bold">
+                {localeOptions.map((option) => (
+                  <button
+                    key={option}
+                    type="button"
+                    onClick={() => setLocale(option)}
+                    className={`rounded px-1.5 py-0.5 transition ${
+                      locale === option
+                        ? "bg-emerald-600 text-white"
+                        : "text-sky-700 hover:bg-sky-100"
+                    }`}
+                  >
+                    {option.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            </div>
           </nav>
         </header>
 
         <main className="space-y-10">
           <section className="flex min-h-28 flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/80 px-4 py-5 text-center">
             <p className="text-sm font-semibold text-slate-700">
-              ¿Quieres que tu clínica o servicio aparezca aquí?
+              {messages.home.partner.question}
             </p>
             <a
               href="mailto:tuemail@ejemplo.com?subject=Inter%C3%A9s%20en%20Partnership%20-%20The%20Pet%20Bridge"
               className="mt-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
             >
-              Asóciate con nosotros
+              {messages.home.partner.cta}
             </a>
           </section>
 
           <section className="rounded-3xl border border-emerald-100 bg-white/85 px-6 py-10 shadow-sm md:px-10">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-emerald-700">
-              {content.hero.eyebrow}
+              {messages.home.hero.eyebrow}
             </p>
             <h1 className="mb-4 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-              {content.hero.title}
+              {messages.home.hero.title}
             </h1>
             <p className="max-w-3xl text-base leading-7 text-slate-600 md:text-lg">
-              {content.hero.subtitle}
+              {messages.home.hero.subtitle}
             </p>
             <form onSubmit={handleSearch} className="mt-6 w-full max-w-3xl">
               <div className="flex w-full flex-col gap-3 rounded-2xl bg-white p-2 shadow-md sm:flex-row">
@@ -93,14 +108,14 @@ export default function Home() {
                   type="text"
                   value={searchTerm}
                   onChange={(event) => setSearchTerm(event.target.value)}
-                  placeholder="¿Qué servicio buscas? (ej: seguros, Madrid, clínicas...)"
+                  placeholder={messages.home.search.placeholder}
                   className="w-full rounded-xl border border-sky-100 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-emerald-300 focus:ring-2 focus:ring-emerald-100"
                 />
                 <button
                   type="submit"
                   className="rounded-xl bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-500 sm:min-w-28"
                 >
-                  Buscar
+                  {messages.home.search.button}
                 </button>
               </div>
             </form>
@@ -108,28 +123,28 @@ export default function Home() {
 
           <section className="rounded-3xl border border-sky-100 bg-white/90 px-6 py-10 shadow-sm md:px-10">
             <h2 className="mb-8 text-center text-3xl font-bold text-slate-900">
-              Todo lo que tu mascota necesita para viajar
+              {messages.home.services.title}
             </h2>
 
             <div className="grid gap-6 md:grid-cols-3">
               <article className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-md">
                 <img
                   src="https://images.unsplash.com/photo-1529074963764-98f45c47344b?auto=format&fit=crop&w=1000&q=80"
-                  alt="Mascota viajando con seguridad"
+                  alt={messages.home.services.items.insurance.imageAlt}
                   className="h-44 w-full object-cover"
                 />
                 <div className="p-5">
                   <h3 className="mb-2 text-xl font-semibold text-slate-900">
-                    Seguros de Viaje
+                    {messages.home.services.items.insurance.title}
                   </h3>
                   <p className="mb-4 text-sm leading-6 text-slate-600">
-                    Proteccion total en Europa
+                    {messages.home.services.items.insurance.description}
                   </p>
                   <Link
                     href="/directorio"
                     className="inline-block rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500"
                   >
-                    Comparar Seguros
+                    {messages.home.services.items.insurance.button}
                   </Link>
                 </div>
               </article>
@@ -137,21 +152,21 @@ export default function Home() {
               <article className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-md">
                 <img
                   src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1000&q=80"
-                  alt="Perro feliz en un jardin"
+                  alt={messages.home.services.items.boarding.imageAlt}
                   className="h-44 w-full object-cover"
                 />
                 <div className="p-5">
                   <h3 className="mb-2 text-xl font-semibold text-slate-900">
-                    Residencias Caninas
+                    {messages.home.services.items.boarding.title}
                   </h3>
                   <p className="mb-4 text-sm leading-6 text-slate-600">
-                    Los mejores hoteles pet-friendly
+                    {messages.home.services.items.boarding.description}
                   </p>
                   <Link
                     href="/directorio"
                     className="inline-block rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500"
                   >
-                    Buscar Hotel
+                    {messages.home.services.items.boarding.button}
                   </Link>
                 </div>
               </article>
@@ -159,21 +174,21 @@ export default function Home() {
               <article className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-md">
                 <img
                   src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
-                  alt="Clinica veterinaria y estetoscopio"
+                  alt={messages.home.services.items.clinics.imageAlt}
                   className="h-44 w-full object-cover"
                 />
                 <div className="p-5">
                   <h3 className="mb-2 text-xl font-semibold text-slate-900">
-                    Clinicas 24h
+                    {messages.home.services.items.clinics.title}
                   </h3>
                   <p className="mb-4 text-sm leading-6 text-slate-600">
-                    Asistencia veterinaria inmediata
+                    {messages.home.services.items.clinics.description}
                   </p>
                   <Link
                     href="/directorio"
                     className="inline-block rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-500"
                   >
-                    Ver Clinicas
+                    {messages.home.services.items.clinics.button}
                   </Link>
                 </div>
               </article>
@@ -182,13 +197,13 @@ export default function Home() {
 
           <section className="flex min-h-28 flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/80 px-4 py-5 text-center">
             <p className="text-sm font-semibold text-slate-700">
-              ¿Quieres que tu clínica o servicio aparezca aquí?
+              {messages.home.partner.question}
             </p>
             <a
               href="mailto:tuemail@ejemplo.com?subject=Inter%C3%A9s%20en%20Partnership%20-%20The%20Pet%20Bridge"
               className="mt-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
             >
-              Asóciate con nosotros
+              {messages.home.partner.cta}
             </a>
           </section>
 
@@ -203,14 +218,14 @@ export default function Home() {
                     <Icon size={24} aria-hidden="true" />
                   </div>
                   <h2 className="mb-3 text-xl font-semibold text-slate-900">
-                    {content.cards[cardKey].title}
+                    {messages.home.featureCards[cardKey].title}
                   </h2>
                   <p className="text-sm leading-6 text-slate-600">
-                    {content.cards[cardKey].description}
+                    {messages.home.featureCards[cardKey].description}
                   </p>
                   {isDirectoryCard ? (
                     <p className="mt-4 text-sm font-semibold text-emerald-700">
-                      Ver servicios
+                      {messages.home.featureCards.viewServices}
                     </p>
                   ) : null}
                 </>
@@ -244,16 +259,16 @@ export default function Home() {
         <footer className="mt-12 space-y-6 border-t border-sky-100 pt-6 text-center text-sm text-slate-500">
           <div className="flex min-h-24 flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/80 px-4 py-5 text-center">
             <p className="text-sm font-semibold text-slate-700">
-              ¿Quieres que tu clínica o servicio aparezca aquí?
+              {messages.home.partner.question}
             </p>
             <a
               href="mailto:tuemail@ejemplo.com?subject=Inter%C3%A9s%20en%20Partnership%20-%20The%20Pet%20Bridge"
               className="mt-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
             >
-              Asóciate con nosotros
+              {messages.home.partner.cta}
             </a>
           </div>
-          <p>{content.footer}</p>
+          <p>{messages.home.inlineFooter}</p>
         </footer>
       </div>
     </div>

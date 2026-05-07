@@ -1,0 +1,74 @@
+{
+  "home": {
+    "header": {
+      "brand": "The Pet Bridge",
+      "adopt": "Adoptar",
+      "services": "Servicios",
+      "euTravel": "Viaje UE",
+      "directory": "Directorio",
+      "language": "Idioma"
+    },
+    "hero": {
+      "eyebrow": "Bienvenido a The Pet Bridge",
+      "title": "Tu conexion europea para mascotas",
+      "subtitle": "Ayudamos a las familias a adoptar, cuidar y viajar con mascotas por toda Europa."
+    },
+    "search": {
+      "placeholder": "Que servicio buscas? (ej: seguros, Madrid, clinicas...)",
+      "button": "Buscar"
+    },
+    "services": {
+      "title": "Todo lo que tu mascota necesita para viajar",
+      "items": {
+        "insurance": {
+          "title": "Seguros de Viaje",
+          "description": "Proteccion total en Europa",
+          "button": "Comparar Seguros",
+          "imageAlt": "Mascota viajando con seguridad"
+        },
+        "boarding": {
+          "title": "Residencias Caninas",
+          "description": "Los mejores hoteles pet-friendly",
+          "button": "Buscar Hotel",
+          "imageAlt": "Perro feliz en un jardin"
+        },
+        "clinics": {
+          "title": "Clinicas 24h",
+          "description": "Asistencia veterinaria inmediata",
+          "button": "Ver Clinicas",
+          "imageAlt": "Clinica veterinaria y estetoscopio"
+        }
+      }
+    },
+    "partner": {
+      "question": "Quieres que tu clinica o servicio aparezca aqui?",
+      "cta": "Asociate con nosotros"
+    },
+    "featureCards": {
+      "adopt": {
+        "title": "Adoptar",
+        "description": "Descubre recursos confiables y consejos practicos para encontrar mascotas y oportunidades de adopcion en Europa."
+      },
+      "wellness": {
+        "title": "Bienestar",
+        "description": "Consulta un directorio en crecimiento de veterinarios, clinicas y servicios de bienestar para mascotas."
+      },
+      "travelLegal": {
+        "title": "Viaje y Legal",
+        "description": "Aprende como funciona el pasaporte europeo para mascotas, que documentos necesitas y como cumplir las normas locales."
+      },
+      "viewServices": "Ver servicios"
+    },
+    "inlineFooter": "Conectando mascotas y familias en toda Europa."
+  },
+  "footer": {
+    "brandDescription": "Tu conexion europea para viajar con mascotas. Facilitamos la busqueda de servicios y seguros para que tu y tu mejor amigo llegueis mas lejos.",
+    "legalTitle": "Legal",
+    "legalNotice": "Aviso Legal",
+    "privacyPolicy": "Politica de Privacidad",
+    "cookiePolicy": "Politica de Cookies",
+    "transparencyTitle": "Transparencia",
+    "affiliateDisclaimer": "Nota: Algunos de los enlaces en este sitio son enlaces de afiliado. Podemos recibir una pequena comision si decides contratar un servicio, sin coste extra para ti.",
+    "copyright": "Todos los derechos reservados."
+  }
+}

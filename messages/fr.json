@@ -1,0 +1,74 @@
+{
+  "home": {
+    "header": {
+      "brand": "The Pet Bridge",
+      "adopt": "Adopter",
+      "services": "Services",
+      "euTravel": "Voyage UE",
+      "directory": "Annuaire",
+      "language": "Langue"
+    },
+    "hero": {
+      "eyebrow": "Bienvenue sur The Pet Bridge",
+      "title": "Votre passerelle europeenne pour les animaux",
+      "subtitle": "Nous aidons les familles a adopter, prendre soin et voyager avec leurs animaux partout en Europe."
+    },
+    "search": {
+      "placeholder": "Quel service recherchez-vous ? (ex. assurance, Madrid, cliniques...)",
+      "button": "Rechercher"
+    },
+    "services": {
+      "title": "Tout ce dont votre animal a besoin pour voyager",
+      "items": {
+        "insurance": {
+          "title": "Assurance Voyage",
+          "description": "Protection complete en Europe",
+          "button": "Comparer les assurances",
+          "imageAlt": "Animal voyageant en toute securite"
+        },
+        "boarding": {
+          "title": "Pensions Canines",
+          "description": "Les meilleurs hebergements pet-friendly",
+          "button": "Trouver un hebergement",
+          "imageAlt": "Chien heureux dans un jardin"
+        },
+        "clinics": {
+          "title": "Cliniques 24h",
+          "description": "Assistance veterinaire immediate",
+          "button": "Voir les cliniques",
+          "imageAlt": "Clinique veterinaire et stethoscope"
+        }
+      }
+    },
+    "partner": {
+      "question": "Vous voulez afficher votre clinique ou service ici ?",
+      "cta": "Devenez partenaire"
+    },
+    "featureCards": {
+      "adopt": {
+        "title": "Adopter",
+        "description": "Decouvrez des ressources fiables et des conseils pratiques pour trouver des animaux et des opportunites d adoption en Europe."
+      },
+      "wellness": {
+        "title": "Bien-etre",
+        "description": "Consultez un annuaire en expansion de veterinaires, cliniques et services de bien-etre animal pres de votre destination."
+      },
+      "travelLegal": {
+        "title": "Voyage & Juridique",
+        "description": "Comprenez le passeport europeen pour animaux, les documents necessaires et les regles locales a respecter."
+      },
+      "viewServices": "Voir les services"
+    },
+    "inlineFooter": "Nous rapprochons les animaux et les familles partout en Europe."
+  },
+  "footer": {
+    "brandDescription": "Votre lien europeen pour voyager avec des animaux. Nous facilitons la recherche de services et d assurances pour aller plus loin avec votre meilleur compagnon.",
+    "legalTitle": "Mentions legales",
+    "legalNotice": "Mentions legales",
+    "privacyPolicy": "Politique de confidentialite",
+    "cookiePolicy": "Politique des cookies",
+    "transparencyTitle": "Transparence",
+    "affiliateDisclaimer": "Note : Certains liens de ce site sont des liens d affiliation. Nous pouvons percevoir une petite commission si vous souscrivez un service, sans cout supplementaire pour vous.",
+    "copyright": "Tous droits reserves."
+  }
+}

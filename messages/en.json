@@ -1,0 +1,74 @@
+{
+  "home": {
+    "header": {
+      "brand": "The Pet Bridge",
+      "adopt": "Adopt",
+      "services": "Services",
+      "euTravel": "EU Travel",
+      "directory": "Directory",
+      "language": "Language"
+    },
+    "hero": {
+      "eyebrow": "Welcome to The Pet Bridge",
+      "title": "Your European Pet Connection",
+      "subtitle": "Helping families adopt, care for, and travel with pets across Europe."
+    },
+    "search": {
+      "placeholder": "What service are you looking for? (e.g., insurance, Madrid, clinics...)",
+      "button": "Search"
+    },
+    "services": {
+      "title": "Everything your pet needs to travel",
+      "items": {
+        "insurance": {
+          "title": "Travel Insurance",
+          "description": "Comprehensive protection across Europe",
+          "button": "Compare Insurance",
+          "imageAlt": "Pet traveling safely"
+        },
+        "boarding": {
+          "title": "Dog Boarding",
+          "description": "Top-rated pet-friendly stays",
+          "button": "Find a Stay",
+          "imageAlt": "Happy dog in a garden"
+        },
+        "clinics": {
+          "title": "24h Clinics",
+          "description": "Immediate veterinary assistance",
+          "button": "View Clinics",
+          "imageAlt": "Veterinary clinic and stethoscope"
+        }
+      }
+    },
+    "partner": {
+      "question": "Want your clinic or service listed here?",
+      "cta": "Partner with us"
+    },
+    "featureCards": {
+      "adopt": {
+        "title": "Adopt",
+        "description": "Discover trusted resources and practical guidance for finding pets and adoption opportunities throughout Europe."
+      },
+      "wellness": {
+        "title": "Wellness",
+        "description": "Browse a growing directory of veterinarians, clinics, and pet wellness services near your destination."
+      },
+      "travelLegal": {
+        "title": "Travel & Legal",
+        "description": "Learn how the EU pet passport works, which documents you need, and how to comply with local regulations."
+      },
+      "viewServices": "View services"
+    },
+    "inlineFooter": "Connecting pets and families across Europe."
+  },
+  "footer": {
+    "brandDescription": "Your European connection for traveling with pets. We help you find services and insurance so you and your best friend can go farther.",
+    "legalTitle": "Legal",
+    "legalNotice": "Legal Notice",
+    "privacyPolicy": "Privacy Policy",
+    "cookiePolicy": "Cookie Policy",
+    "transparencyTitle": "Transparency",
+    "affiliateDisclaimer": "Note: Some links on this site are affiliate links. We may earn a small commission if you choose to purchase a service, at no extra cost to you.",
+    "copyright": "All rights reserved."
+  }
+}
