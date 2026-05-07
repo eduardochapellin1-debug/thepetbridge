@@ -61,6 +61,84 @@
     },
     "inlineFooter": "Connecting pets and families across Europe."
   },
+  "directory": {
+    "title": "Directory",
+    "intro": "Useful resources for pet travel and paperwork, filtered by national or international scope.",
+    "seoTitle": "Pet Services and Care in Spain and Internationally",
+    "seoDescription": "At The Pet Bridge, we help you find the best resources. From dog boarding in Madrid and Barcelona to reliable pet travel insurance, our directory includes 24h veterinary hospitals and trusted caregivers so you can travel across Europe with confidence.",
+    "filters": {
+      "all": "All",
+      "spain": "Spain",
+      "international": "International"
+    },
+    "resourceCta": "View resource",
+    "resources": [
+      {
+        "id": "barkibu",
+        "title": "Barkibu (Insurance)",
+        "description": "One of Spain's highest-rated pet insurance providers, with comprehensive health and accident coverage.",
+        "link": "https://barkibu.com",
+        "category": "spain",
+        "tag": "Spain"
+      },
+      {
+        "id": "rover",
+        "title": "Rover",
+        "description": "Find trusted pet sitters and walkers near you through a leading pet care platform.",
+        "link": "https://rover.com",
+        "category": "spain",
+        "tag": "Spain"
+      },
+      {
+        "id": "hospital-veterinario-retiro",
+        "title": "Retiro Veterinary Hospital (24h)",
+        "description": "24-hour emergency veterinary care in central Madrid with experienced specialists.",
+        "link": "https://hospitalveterinarioretiro.com",
+        "category": "spain",
+        "tag": "Spain"
+      },
+      {
+        "id": "feliway-adaptil",
+        "title": "Feliway / Adaptil",
+        "description": "Leading pet wellbeing products designed to reduce stress in cats and dogs.",
+        "link": "https://feliway.com",
+        "category": "international",
+        "tag": "International"
+      },
+      {
+        "id": "vive-pet-resort",
+        "title": "Vive Pet Resort",
+        "description": "Premium pet resort in Madrid offering daycare, boarding, and pool facilities.",
+        "link": "https://vivepetresort.com",
+        "category": "spain",
+        "tag": "Spain"
+      },
+      {
+        "id": "dondersteen-resort",
+        "title": "Dondersteen Resort",
+        "description": "Premium dog hotel in Barcelona with 10,000m2 of open outdoor areas.",
+        "link": "https://dondersteen-resort.com",
+        "category": "spain",
+        "tag": "Spain"
+      },
+      {
+        "id": "iati-escapadas",
+        "title": "IATI Escapadas",
+        "description": "Travel insurance with dedicated pet coverage for trips across Spain and Europe.",
+        "link": "https://iatiseguros.com",
+        "category": "international",
+        "tag": "International"
+      },
+      {
+        "id": "heymondo",
+        "title": "Heymondo",
+        "description": "International travel insurance including veterinary assistance coverage.",
+        "link": "https://heymondo.es",
+        "category": "international",
+        "tag": "International"
+      }
+    ]
+  },
   "footer": {
     "brandDescription": "Your European connection for traveling with pets. We help you find services and insurance so you and your best friend can go farther.",
     "legalTitle": "Legal",

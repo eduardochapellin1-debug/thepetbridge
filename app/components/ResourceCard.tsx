@@ -2,7 +2,9 @@ type ResourceCardProps = {
   nombre: string;
   descripcion: string;
   link: string;
-  categoria: "Espana" | "Internacional";
+  categoria: "spain" | "international";
+  categoriaLabel: string;
+  ctaLabel: string;
 };
 
 export default function ResourceCard({
@@ -10,10 +12,11 @@ export default function ResourceCard({
   descripcion,
   link,
   categoria,
+  categoriaLabel,
+  ctaLabel,
 }: ResourceCardProps) {
-  const categoriaLabel = categoria === "Espana" ? "España" : categoria;
   const badgeClasses =
-    categoria === "Espana"
+    categoria === "spain"
       ? "border-emerald-200 bg-emerald-50 text-emerald-700"
       : "border-sky-200 bg-sky-50 text-sky-700";
 
@@ -36,7 +39,7 @@ export default function ResourceCard({
         rel="noopener noreferrer"
         className="text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
       >
-        Ver recurso
+        {ctaLabel}
       </a>
     </article>
   );

@@ -61,6 +61,84 @@
     },
     "inlineFooter": "Conectando mascotas y familias en toda Europa."
   },
+  "directory": {
+    "title": "Directorio",
+    "intro": "Recursos utiles para viajes y tramites de mascotas, filtrados por alcance nacional o internacional.",
+    "seoTitle": "Servicios y Cuidados para Mascotas en Espana e Internacional",
+    "seoDescription": "En The Pet Bridge, te ayudamos a encontrar los mejores recursos. Desde residencias caninas en Madrid y Barcelona hasta los seguros de viaje para mascotas mas fiables. Nuestro directorio incluye hospitales veterinarios 24h y cuidadores de confianza para viajar por Europa con seguridad.",
+    "filters": {
+      "all": "Todos",
+      "spain": "Espana",
+      "international": "Internacional"
+    },
+    "resourceCta": "Ver recurso",
+    "resources": [
+      {
+        "id": "barkibu",
+        "title": "Barkibu (Seguros)",
+        "description": "El seguro de mascotas mejor valorado en Espana. Cobertura completa para salud y accidentes.",
+        "link": "https://barkibu.com",
+        "category": "spain",
+        "tag": "Espana"
+      },
+      {
+        "id": "rover",
+        "title": "Rover",
+        "description": "Encuentra cuidadores y paseadores de confianza cerca de ti. Servicio lider en cuidado de mascotas.",
+        "link": "https://rover.com",
+        "category": "spain",
+        "tag": "Espana"
+      },
+      {
+        "id": "hospital-veterinario-retiro",
+        "title": "Hospital Veterinario Retiro (24h)",
+        "description": "Urgencias veterinarias 24 horas en el centro de Madrid con especialistas experimentados.",
+        "link": "https://hospitalveterinarioretiro.com",
+        "category": "spain",
+        "tag": "Espana"
+      },
+      {
+        "id": "feliway-adaptil",
+        "title": "Feliway / Adaptil",
+        "description": "Productos lideres en bienestar y reduccion de estres para perros y gatos.",
+        "link": "https://feliway.com",
+        "category": "international",
+        "tag": "Internacional"
+      },
+      {
+        "id": "vive-pet-resort",
+        "title": "Vive Pet Resort",
+        "description": "Resort de lujo para mascotas en Madrid. Guarderia, hotel y piscina.",
+        "link": "https://vivepetresort.com",
+        "category": "spain",
+        "tag": "Espana"
+      },
+      {
+        "id": "dondersteen-resort",
+        "title": "Dondersteen Resort",
+        "description": "Hotel canino premium en Barcelona con 10.000m2 de areas libres.",
+        "link": "https://dondersteen-resort.com",
+        "category": "spain",
+        "tag": "Espana"
+      },
+      {
+        "id": "iati-escapadas",
+        "title": "IATI Escapadas",
+        "description": "Seguro de viaje con cobertura especifica para mascotas en Espana y Europa.",
+        "link": "https://iatiseguros.com",
+        "category": "international",
+        "tag": "Internacional"
+      },
+      {
+        "id": "heymondo",
+        "title": "Heymondo",
+        "description": "Seguro de viaje internacional con asistencia veterinaria incluida.",
+        "link": "https://heymondo.es",
+        "category": "international",
+        "tag": "Internacional"
+      }
+    ]
+  },
   "footer": {
     "brandDescription": "Tu conexion europea para viajar con mascotas. Facilitamos la busqueda de servicios y seguros para que tu y tu mejor amigo llegueis mas lejos.",
     "legalTitle": "Legal",
