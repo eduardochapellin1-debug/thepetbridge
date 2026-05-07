@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "The Pet Bridge",
   description: "Your European pet connection",
+  verification: {
+    google: "IALxR5eKG0UmzRIRK-XO2XJBFdSk0HhzemtfvR1P67k", 
+  },
 };
 
 export default function RootLayout({
