@@ -37,8 +37,16 @@ export default function Footer() {
                 {messages.footer.cookiePolicy}
               </Link>
             </li>
-          </ul>
-        </div>
+            </div>
+
+<div>
+  <h4 className="font-semibold text-gray-900 mb-4 text-left">Comunidad</h4>
+  <ul className="text-sm text-gray-600 space-y-2 text-left">
+    <li><a href="/about" className="hover:text-emerald-600">Sobre Nosotros</a></li>
+    <li><a href="/contacto" className="hover:text-emerald-600">Contacto</a></li>
+    <li><a href="/blog" className="hover:text-emerald-600 font-bold underline decoration-emerald-400">Blog 🐾</a></li>
+  </ul>
+</div>       
 
         {/* Columna 3: Transparencia */}
         <div>
