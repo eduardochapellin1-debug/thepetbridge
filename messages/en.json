@@ -140,13 +140,13 @@
     ]
   },
   "footer": {
-    "brandDescription": "Your European connection for traveling with pets. We help you find services and insurance so you and your best friend can go farther.",
-    "legalTitle": "Legal",
+    "brandDescription": "Your European connection for traveling with pets.",
+    "legalTitle": "Legal Information",
     "legalNotice": "Legal Notice",
     "privacyPolicy": "Privacy Policy",
-    "cookiePolicy": "Cookie Policy",
-    "transparencyTitle": "Transparency",
-    "affiliateDisclaimer": "Note: Some links on this site are affiliate links. We may earn a small commission if you choose to purchase a service, at no extra cost to you.",
-    "copyright": "All rights reserved."
-  }
-}
+    "cookiePolicy": "Cookies Policy"
+   }  
+ }
+ 
+    
+  

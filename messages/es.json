@@ -140,16 +140,11 @@
     ]
   },
   "footer": {
-    "affiliateDisclaimer": "Nota: Algunos de los enlaces en este sitio son enlaces de afiliado. Podemos recibir una pequeña comisión si decides contratar un servicio.",
-    "copyright": "Todos los derechos reservados.",
-    "usefulLinks": "Enlaces Útiles",
-    "about": "Sobre Nosotros",
-    "contact": "Contacto",
-    "blog": "Blog 🐾",
-    "privacy": "Privacidad",
-    "legal": "Aviso Legal",
-    "cookies": "Cookies",
-    "transparency": "Transparencia"
+    "brandDescription": "Tu conexión europea para viajar con mascotas.",
+    "legalTitle": "Información Legal",
+    "legalNotice": "Aviso Legal",
+    "privacyPolicy": "Política de Privacidad",
+    "cookiePolicy": "Política de Cookies"
   }
 }
 
