@@ -7,10 +7,11 @@ import { useParams } from 'next/navigation';
 export default function Footer() {
   const params = useParams();
   const currentYear = new Date().getFullYear();
-
-  // Esta es la clave: Si no hay parámetros de idioma (como en el build de la 404),
-  // renderizamos un footer con textos estáticos para no romper Vercel.
-  if (!params?.locale) {
+  
+  // Si estamos en una ruta que NO tiene idioma (como la 404 de Vercel)
+  // o si params aún no ha cargado, intentamos renderizar, 
+  // pero si falla, mostramos el fallback.
+  if (!params || !params.locale) {
     return (
       <footer className="bg-white border-t border-emerald-100 pt-16 pb-8 text-left">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,10 +26,10 @@ export default function Footer() {
     );
   }
 
-  return <FooterContent currentYear={currentYear} />;
+  return <FooterContent currentYear={currentYear} locale={params.locale as string} />;
 }
 
-function FooterContent({ currentYear }: { currentYear: number }) {
+function FooterContent({ currentYear, locale }: { currentYear: number, locale: string }) {
   const t = useTranslations('footer');
 
   return (
@@ -44,18 +45,18 @@ function FooterContent({ currentYear }: { currentYear: number }) {
           <div>
             <h4 className="font-semibold text-slate-900 mb-4">{t('usefulLinks')}</h4>
             <ul className="text-sm text-slate-600 space-y-3">
-              <li><Link href="/about" className="hover:text-emerald-600 transition-colors">{t('about')}</Link></li>
-              <li><Link href="/contacto" className="hover:text-emerald-600 transition-colors">{t('contact')}</Link></li>
-              <li><Link href="/blog" className="hover:text-emerald-600 font-bold transition-colors">{t('blog')}</Link></li>
+              <li><Link href={`/${locale}/about`} className="hover:text-emerald-600 transition-colors">{t('about')}</Link></li>
+              <li><Link href={`/${locale}/contacto`} className="hover:text-emerald-600 transition-colors">{t('contact')}</Link></li>
+              <li><Link href={`/${locale}/blog`} className="hover:text-emerald-600 font-bold transition-colors">{t('blog')}</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-slate-900 mb-4">{t('legalTitle')}</h4>
             <ul className="text-sm text-slate-600 space-y-3">
-              <li><Link href="/aviso-legal" className="hover:text-emerald-600 transition-colors">{t('legalNotice')}</Link></li>
-              <li><Link href="/privacidad" className="hover:text-emerald-600 transition-colors">{t('privacyPolicy')}</Link></li>
-              <li><Link href="/cookies" className="hover:text-emerald-600 transition-colors">{t('cookiePolicy')}</Link></li>
+              <li><Link href={`/${locale}/aviso-legal`} className="hover:text-emerald-600 transition-colors">{t('legalNotice')}</Link></li>
+              <li><Link href={`/${locale}/privacidad`} className="hover:text-emerald-600 transition-colors">{t('privacyPolicy')}</Link></li>
+              <li><Link href={`/${locale}/cookies`} className="hover:text-emerald-600 transition-colors">{t('cookiePolicy')}</Link></li>
             </ul>
           </div>
         </div>
