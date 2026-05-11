@@ -140,13 +140,16 @@
     ]
   },
   "footer": {
-    "brandDescription": "Tu conexion europea para viajar con mascotas. Facilitamos la busqueda de servicios y seguros para que tu y tu mejor amigo llegueis mas lejos.",
-    "legalTitle": "Legal",
-    "legalNotice": "Aviso Legal",
-    "privacyPolicy": "Politica de Privacidad",
-    "cookiePolicy": "Politica de Cookies",
-    "transparencyTitle": "Transparencia",
-    "affiliateDisclaimer": "Nota: Algunos de los enlaces en este sitio son enlaces de afiliado. Podemos recibir una pequena comision si decides contratar un servicio, sin coste extra para ti.",
-    "copyright": "Todos los derechos reservados."
+    "affiliateDisclaimer": "Nota: Algunos de los enlaces en este sitio son enlaces de afiliado. Podemos recibir una pequeña comisión si decides contratar un servicio.",
+    "copyright": "Todos los derechos reservados.",
+    "usefulLinks": "Enlaces Útiles",
+    "about": "Sobre Nosotros",
+    "contact": "Contacto",
+    "blog": "Blog 🐾",
+    "privacy": "Privacidad",
+    "legal": "Aviso Legal",
+    "cookies": "Cookies",
+    "transparency": "Transparencia"
   }
 }
+

@@ -140,13 +140,16 @@
     ]
   },
   "footer": {
-    "brandDescription": "Votre lien europeen pour voyager avec des animaux. Nous facilitons la recherche de services et d assurances pour aller plus loin avec votre meilleur compagnon.",
-    "legalTitle": "Mentions legales",
-    "legalNotice": "Mentions legales",
-    "privacyPolicy": "Politique de confidentialite",
-    "cookiePolicy": "Politique des cookies",
-    "transparencyTitle": "Transparence",
-    "affiliateDisclaimer": "Note : Certains liens de ce site sont des liens d affiliation. Nous pouvons percevoir une petite commission si vous souscrivez un service, sans cout supplementaire pour vous.",
-    "copyright": "Tous droits reserves."
+    "brandDescription": "Votre lien européen pour voyager avec des animaux. Nous facilitons la recherche de services et d'assurances.",
+    "usefulLinks": "Liens Utiles",
+    "about": "À propos de nous",
+    "contact": "Contact",
+    "blog": "Blog 🐾",
+    "privacy": "Confidentialité",
+    "legal": "Mentions Légales",
+    "cookies": "Cookies",
+    "transparency": "Transparence",
+    "affiliateDisclaimer": "Note : Certains liens sont des liens d'affiliation. Nous pouvons recevoir une commission sans frais pour vous.",
+    "copyright": "Tous droits réservés."
   }
 }
