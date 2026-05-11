@@ -2,10 +2,34 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { useParams } from 'next/navigation';
 
 export default function Footer() {
-  const t = useTranslations('footer');
+  const params = useParams();
   const currentYear = new Date().getFullYear();
+
+  // Esta es la clave: Si no hay parámetros de idioma (como en el build de la 404),
+  // renderizamos un footer con textos estáticos para no romper Vercel.
+  if (!params?.locale) {
+    return (
+      <footer className="bg-white border-t border-emerald-100 pt-16 pb-8 text-left">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-gray-400">
+            <div><h3 className="font-bold text-emerald-600">The Pet Bridge</h3></div>
+            <div><h4 className="font-semibold mb-4">Links</h4></div>
+            <div><h4 className="font-semibold mb-4">Legal</h4></div>
+          </div>
+          <p className="text-center text-xs">© {currentYear} The Pet Bridge.</p>
+        </div>
+      </footer>
+    );
+  }
+
+  return <FooterContent currentYear={currentYear} />;
+}
+
+function FooterContent({ currentYear }: { currentYear: number }) {
+  const t = useTranslations('footer');
 
   return (
     <footer className="bg-white border-t border-emerald-100 pt-16 pb-8 text-left">
@@ -14,9 +38,7 @@ export default function Footer() {
           
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-emerald-600">The Pet Bridge</h3>
-            <p className="text-sm text-slate-600 leading-relaxed">
-              {t('brandDescription')}
-            </p>
+            <p className="text-sm text-slate-600 leading-relaxed">{t('brandDescription')}</p>
           </div>
 
           <div>
