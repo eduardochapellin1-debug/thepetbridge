@@ -1,4 +1,4 @@
-import { BLOG_POSTS } from '@/data/posts';
+import { BLOG_POSTS } from '../../../data/posts';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
