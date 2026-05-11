@@ -2,11 +2,15 @@ import { BLOG_POSTS } from '../../data/posts';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export default function PostPage({ params }: { params: { slug: string } }) {
-  // Verificamos si el slug existe en nuestra base de datos
-  const post = BLOG_POSTS[params.slug as keyof typeof BLOG_POSTS];
+// Hacemos la función asíncrona (async) para que espere a los params
+export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
+  // Esperamos a que los params lleguen
+  const resolvedParams = await params;
+  const slug = resolvedParams.slug;
 
-  // Si no existe, lanzamos el 404 de Next.js
+  // Buscamos el post
+  const post = BLOG_POSTS[slug as keyof typeof BLOG_POSTS];
+
   if (!post) {
     notFound();
   }
@@ -22,11 +26,17 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </Link>
 
         <article>
-          <h1 className="text-4xl font-bold text-slate-900 mb-8">
-            {post.title}
-          </h1>
-          <div className="prose prose-emerald lg:prose-xl text-slate-700 space-y-6">
-            <p className="text-lg leading-relaxed">{post.content}</p>
+          <header className="mb-10">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight mb-4 text-left">
+              {post.title}
+            </h1>
+            <div className="h-1 w-20 bg-emerald-500 rounded-full"></div>
+          </header>
+
+          <div className="prose prose-emerald lg:prose-xl text-slate-700 leading-relaxed text-left">
+            <p className="text-lg whitespace-pre-line">
+              {post.content}
+            </p>
           </div>
         </article>
       </div>
