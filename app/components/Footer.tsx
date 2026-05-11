@@ -2,27 +2,10 @@
 
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 
 export default function Footer() {
-  const params = useParams();
-  const currentYear = new Date().getFullYear();
-  
-  // Si no hay parámetros (como en el build de la página 404), 
-  // devolvemos un footer simple para que Vercel no falle.
-  if (!params?.locale) {
-    return (
-      <footer className="bg-white border-t border-emerald-100 py-8 text-center text-xs text-gray-400">
-        © {currentYear} The Pet Bridge.
-      </footer>
-    );
-  }
-
-  return <FooterContent currentYear={currentYear} />;
-}
-
-function FooterContent({ currentYear }: { currentYear: number }) {
   const t = useTranslations('footer');
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-white border-t border-emerald-100 pt-16 pb-8 text-left">
@@ -55,11 +38,9 @@ function FooterContent({ currentYear }: { currentYear: number }) {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-emerald-50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-slate-400">© {currentYear} The Pet Bridge.</p>
-          <p className="text-xs text-slate-400 italic">
-            {t('affiliateDisclaimer')}
-          </p>
+        <div className="pt-8 border-t border-emerald-50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+          <p>© {currentYear} The Pet Bridge.</p>
+          <p className="italic">{t('affiliateDisclaimer')}</p>
         </div>
       </div>
     </footer>
