@@ -13,7 +13,7 @@ export default function Footer() {
   } catch (error) {
     // Si falla (como en la página 404), usamos un valor vacío para no romper la web
     return (
-      <footer className="bg-white border-t border-emerald-100 py-8 text-center text-xs text-slate-400">
+      <footer className="w-full bg-slate-50 border-t border-slate-200 pt-16 pb-12 block mt-20">
         © {new Date().getFullYear()} The Pet Bridge.
       </footer>
     );
