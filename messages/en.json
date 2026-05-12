@@ -139,7 +139,7 @@
       }
     ]
   },
-  "footer": {
+  "Footer": {
     "legalTitle": "Legal Information",
     "privacyPolicy": "Privacy Policy",
     "cookiePolicy": "Cookies Policy"

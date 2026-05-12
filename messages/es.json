@@ -139,10 +139,8 @@
       }
     ]
   },
-  "footer": {
-    "brandDescription": "Tu conexión europea para viajar con mascotas.",
+  "Footer": {
     "legalTitle": "Información Legal",
-    "legalNotice": "Aviso Legal",
     "privacyPolicy": "Política de Privacidad",
     "cookiePolicy": "Política de Cookies"
   }
