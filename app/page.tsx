@@ -255,21 +255,6 @@ export default function Home() {
           </section>
 
         </main>
-
-        <footer className="mt-12 space-y-6 border-t border-sky-100 pt-6 text-center text-sm text-slate-500">
-          <div className="flex min-h-24 flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/80 px-4 py-5 text-center">
-            <p className="text-sm font-semibold text-slate-700">
-              {messages.home.partner.question}
-            </p>
-            <a
-              href="mailto:tuemail@ejemplo.com?subject=Inter%C3%A9s%20en%20Partnership%20-%20The%20Pet%20Bridge"
-              className="mt-2 text-sm font-semibold text-emerald-700 transition hover:text-emerald-600"
-            >
-              {messages.home.partner.cta}
-            </a>
-          </div>
-          <p>{messages.home.inlineFooter}</p>
-        </footer>
       </div>
     </div>
   );
