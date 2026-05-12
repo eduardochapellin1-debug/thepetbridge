@@ -9,7 +9,7 @@ export default function Footer() {
     t = useTranslations('Footer');
   } catch (error) {
     return (
-      <footer className="w-full bg-slate-50 border-t border-slate-200 py-8 text-center text-xs text-slate-400">
+      <footer className="w-full bg-slate-800 text-white pt-16 pb-12 mt-20 block min-h-[300px]">
         © {new Date().getFullYear()} The Pet Bridge.
       </footer>
     );
