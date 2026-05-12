@@ -1,25 +1,14 @@
 'use client';
-import { useTranslations } from 'next-intl';
+import { useI18n } from '@/app/i18n/I18nProvider'; // Ajusta la ruta exacta a tu proveedor si da error
 import Link from 'next/link';
 
 export default function Footer() {
-  // Inicializamos las variables vacías
-  let legalTitle = "";
-  let privacy = "";
-  let cookies = "";
+  const { messages } = useI18n();
 
-  try {
-    // Buscamos la sección con F mayúscula exigida por tu I18nProvider
-    const t = useTranslations('Footer');
-    legalTitle = t('legalTitle');
-    privacy = t('privacyPolicy');
-    cookies = t('cookiePolicy');
-  } catch (e) {
-    // Respaldo por si falla el contexto en páginas especiales
-    legalTitle = "Legal Information";
-    privacy = "Privacy Policy";
-    cookies = "Cookies Policy";
-  }
+  // Sistema de respaldo por si el JSON tarda en cargar en páginas especiales
+  const legalTitle = messages?.Footer?.legalTitle || "Legal Information";
+  const privacy = messages?.Footer?.privacyPolicy || "Privacy Policy";
+  const cookies = messages?.Footer?.cookiePolicy || "Cookies Policy";
 
   return (
     <footer className="w-full bg-[#0f172a] text-white pt-16 pb-12 mt-auto block border-t-4 border-emerald-500">
@@ -40,7 +29,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Columna 3: Totalmente dinámica */}
+          {/* Columna 3 */}
           <div>
             <h4 className="text-lg font-semibold mb-4">{legalTitle}</h4>
             <ul className="space-y-3 text-sm opacity-80">
