@@ -3,18 +3,22 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
 export default function Footer() {
-  // Textos por defecto por si falla el sistema en páginas especiales (como la 404)
-  let legalTitle = "Legal Information";
-  let privacy = "Privacy Policy";
-  let cookies = "Cookies Policy";
+  // Inicializamos las variables vacías
+  let legalTitle = "";
+  let privacy = "";
+  let cookies = "";
 
   try {
+    // Buscamos la sección con F mayúscula exigida por tu I18nProvider
     const t = useTranslations('Footer');
     legalTitle = t('legalTitle');
     privacy = t('privacyPolicy');
     cookies = t('cookiePolicy');
   } catch (e) {
-    // Si falla el contexto de idioma, mantiene los textos en inglés de arriba
+    // Respaldo por si falla el contexto en páginas especiales
+    legalTitle = "Legal Information";
+    privacy = "Privacy Policy";
+    cookies = "Cookies Policy";
   }
 
   return (
@@ -36,7 +40,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Columna 3: Conectada perfectamente a tu JSON */}
+          {/* Columna 3: Totalmente dinámica */}
           <div>
             <h4 className="text-lg font-semibold mb-4">{legalTitle}</h4>
             <ul className="space-y-3 text-sm opacity-80">
