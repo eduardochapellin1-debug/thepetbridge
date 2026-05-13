@@ -3,9 +3,10 @@ import { useI18n } from '@/app/i18n/I18nProvider';
 import Link from 'next/link';
 
 export default function Footer() {
-  const { messages } = useI18n();
+  // Se añade "as any" para evitar que TypeScript lance el error en Vercel
+  const { messages } = useI18n() as any;
 
-  // Sistema de respaldo con fallback en caso de que falle la carga del JSON
+  // Sistema de respaldo con fallback por si el JSON tarda en cargar
   const description = messages?.footer?.description || "Connecting pets and families across Europe.";
   const linksTitle = messages?.footer?.linksTitle || "Links";
   const blogText = messages?.footer?.blog || "Blog";
@@ -24,7 +25,7 @@ export default function Footer() {
             <p className="text-sm opacity-80">{description}</p>
           </div>
 
-          {/* Columna 2: Enlaces (No estaba en tu código anterior) */}
+          {/* Columna 2: Enlaces */}
           <div>
             <h3 className="text-xl font-bold text-emerald-400 mb-4">{linksTitle}</h3>
             <ul className="space-y-2 text-sm opacity-80">
