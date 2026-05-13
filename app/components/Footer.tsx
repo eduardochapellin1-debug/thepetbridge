@@ -1,72 +1,95 @@
 'use client';
-import { useI18n } from '@/app/i18n/I18nProvider';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 export default function Footer() {
-  const { messages } = useI18n() as any;
+  // Estado local para almacenar el idioma real del navegador
+  const [lang, setLang] = useState('en');
 
-  // Validación estricta para evitar caídas en páginas como /not-found
-  const rawHome = messages?.header?.home || messages?.home || 'home';
-  const homeText = typeof rawHome === 'string' ? rawHome.toLowerCase() : 'home';
+  useEffect(() => {
+    // Detecta el atributo 'lang' del HTML de forma directa y en tiempo real
+    const htmlElement = document.documentElement;
+    if (htmlElement) {
+      const currentLang = htmlElement.getAttribute('lang') || 'en';
+      setLang(currentLang.toLowerCase());
+    }
 
-  // Valores por defecto en Inglés
-  let description = "Connecting pets and families across Europe.";
-  let linksTitle = "Links";
-  let blogText = "Blog";
-  let legalTitle = "Legal Information";
-  let privacy = "Privacy Policy";
-  let cookies = "Cookies Policy";
+    // Escucha cambios por si el usuario pulsa el botón multiidioma sin recargar
+    const observer = new MutationObserver(() => {
+      const currentLang = htmlElement.getAttribute('lang') || 'en';
+      setLang(currentLang.toLowerCase());
+    });
 
-  if (homeText.includes('inicio') || (homeText.includes('accueil') === false && homeText.includes('home') === false)) {
-    // Modo Español
-    description = "Conectando mascotas y familias a través de Europa.";
-    linksTitle = "Enlaces";
-    blogText = "Blog";
-    legalTitle = "Información Legal";
-    privacy = "Política de Privacidad";
-    cookies = "Política de Cookies";
-  } else if (homeText.includes('accueil') || homeText.includes('bienvenue')) {
-    // Modo Francés
-    description = "Connecter les animaux de compagnie et les familles à travers l'Europe.";
-    linksTitle = "Liens";
-    blogText = "Blog";
-    legalTitle = "Informations Légales";
-    privacy = "Politique de Confidentialité";
-    cookies = "Politique de Cookies";
-  }
+    observer.observe(htmlElement, { attributes: true, attributeFilter: ['lang'] });
+    return () => observer.disconnect();
+  }, []);
+
+  // Valores estructurados por idioma (Sin usar condicionales ambiguos)
+  const translations: Record<string, any> = {
+    en: {
+      description: "Connecting pets and families across Europe.",
+      linksTitle: "Links",
+      blog: "Blog",
+      legalTitle: "Legal Information",
+      privacyPolicy: "Privacy Policy",
+      cookiePolicy: "Cookies Policy"
+    },
+    es: {
+      description: "Conectando mascotas y familias a través de Europa.",
+      linksTitle: "Enlaces",
+      blog: "Blog",
+      legalTitle: "Información Legal",
+      privacyPolicy: "Política de Privacidad",
+      cookiePolicy: "Política de Cookies"
+    },
+    fr: {
+      description: "Connecter les animaux de compagnie et les familles à travers l'Europe.",
+      linksTitle: "Liens",
+      blog: "Blog",
+      legalTitle: "Informations Légales",
+      privacyPolicy: "Politique de Confidentialité",
+      cookiePolicy: "Politique de Cookies"
+    }
+  };
+
+  // Si el idioma detectado no está en el diccionario, usamos inglés por seguridad
+  const t = translations[lang] || translations['en'];
 
   return (
     <footer className="w-full bg-[#0f172a] text-white pt-16 pb-12 mt-auto block border-t-4 border-emerald-500">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
           
+          {/* Columna 1 */}
           <div>
             <h3 className="text-xl font-bold text-emerald-400 mb-4">The Pet Bridge</h3>
-            <p className="text-sm opacity-80">{description}</p>
+            <p className="text-sm opacity-80">{t.description}</p>
           </div>
 
+          {/* Columna 2 */}
           <div>
-            <h3 className="text-xl font-bold text-emerald-400 mb-4">{linksTitle}</h3>
+            <h3 className="text-xl font-bold text-emerald-400 mb-4">{t.linksTitle}</h3>
             <ul className="space-y-2 text-sm opacity-80">
               <li>
                 <Link href="/blog" className="hover:text-emerald-400 transition-colors">
-                  {blogText}
+                  {t.blog}
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Columna 3 */}
           <div>
-            <h3 className="text-xl font-bold text-emerald-400 mb-4">{legalTitle}</h3>
+            <h3 className="text-xl font-bold text-emerald-400 mb-4">{t.legalTitle}</h3>
             <ul className="space-y-2 text-sm opacity-80">
               <li>
                 <Link href="/privacidad" className="hover:text-emerald-400 transition-colors">
-                  {privacy}
+                  {t.privacyPolicy}
                 </Link>
               </li>
               <li>
                 <Link href="/cookies" className="hover:text-emerald-400 transition-colors">
-                  {cookies}
+                  {t.cookiePolicy}
                 </Link>
               </li>
             </ul>
