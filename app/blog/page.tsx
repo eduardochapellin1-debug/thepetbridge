@@ -1,45 +1,41 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { BLOG_POSTS } from '../data/posts';
-import { useI18n } from '@/app/i18n/I18nProvider';
 
 export default function BlogIndex() {
-  const { messages } = useI18n() as any;
-  const [locale, setLocale] = useState<'es' | 'en' | 'fr'>('es');
-
-  useEffect(() => {
-    // Detectamos el idioma real activo leyendo el botón de "Inicio"
-    const homeText = (messages?.header?.home || messages?.home || 'home').toLowerCase();
+  // Lista fija de artículos. No depende de ningún archivo externo ni de JSON.
+  const posts = [
+    // Artículos en Español (Tus artículos originales)
+    { slug: 'guia-viajar-europa-mascota', title: 'Guía definitiva para viajar por Europa con tu mascota', lang: 'Español' },
+    { slug: 'pasaporte-europeo-mascotas', title: 'Pasaporte Europeo para Mascotas: Cómo obtenerlo paso a paso', lang: 'Español' },
+    { slug: 'mejores-aerolineas-pet-friendly', title: 'Las 5 mejores aerolíneas Pet-Friendly en Europa', lang: 'Español' },
+    { slug: 'seguros-viaje-mascotas-obligatorios', title: 'Seguros de viaje para mascotas: ¿Son obligatorios?', lang: 'Español' },
     
-    if (homeText.includes('inicio')) {
-      setLocale('es');
-    } else if (homeText.includes('accueil') || homeText.includes('bienvenue')) {
-      setLocale('fr');
-    } else {
-      setLocale('en');
-    }
-  }, [messages]);
-
-  // Convertimos el objeto de posts en un array según el idioma detectado
-  const postsList = Object.keys(BLOG_POSTS).map((slug) => ({
-    slug,
-    ...BLOG_POSTS[slug as keyof typeof BLOG_POSTS][locale]
-  }));
-
-  // Textos adaptables para la interfaz del blog
-  const labelLeerMas = locale === 'es' ? 'Leer más →' : locale === 'fr' ? 'Lire la suite →' : 'Read more →';
-  const labelBlogTitle = locale === 'es' ? 'Blog' : locale === 'fr' ? 'Blog' : 'Our Blog';
+    // Nuevos artículos en Inglés para Google AdSense
+    { slug: 'eu-pet-passport-guide', title: 'How to Get a European Pet Passport: Step-by-Step Guide', lang: 'English' },
+    { slug: 'best-pet-friendly-airlines-europe', title: 'Top 5 Pet-Friendly Airlines for Traveling in Europe', lang: 'English' },
+    
+    // Nuevos artículos en Francés para Google AdSense
+    { slug: 'passeport-europeen-animaux-guide', title: 'Passeport Européen pour Animaux : Comment l\'obtenir étape par étape', lang: 'Français' },
+    { slug: 'meilleures-compagnies-aeriennes-animaux', title: 'Top 5 des compagnies aériennes acceptant les animaux en Europe', lang: 'Français' }
+  ];
 
   return (
     <div className="max-w-6xl mx-auto py-24 px-6 min-h-screen">
-      <h1 className="text-4xl font-bold text-emerald-600 mb-12 text-left">{labelBlogTitle}</h1>
+      <h1 className="text-4xl font-bold text-emerald-600 mb-4 text-left">Blog & Articles</h1>
+      <p className="text-sm text-slate-500 mb-12 text-left">Find practical guides and useful tips for traveling with your pets across Europe.</p>
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {postsList.map((post) => (
-          <div key={post.slug} className="border border-emerald-100 p-6 rounded-2xl bg-white shadow-sm flex flex-col justify-between h-64 text-left">
-            <h2 className="text-xl font-bold text-slate-800 mb-4">{post.title}</h2>
-            <Link href={`/blog/${post.slug}`} className="text-emerald-600 font-semibold hover:underline">
-              {labelLeerMas}
+        {posts.map((post) => (
+          <div key={post.slug} className="border border-emerald-100 p-6 rounded-2xl bg-white shadow-sm flex flex-col justify-between h-64 text-left hover:border-emerald-300 transition-colors">
+            <div>
+              <span className="text-xs font-semibold bg-emerald-50 text-emerald-600 px-2 py-1 rounded-md inline-block mb-3">
+                {post.lang}
+              </span>
+              <h2 className="text-xl font-bold text-slate-800 leading-snug">{post.title}</h2>
+            </div>
+            <Link href={`/blog/${post.slug}`} className="text-emerald-600 font-semibold hover:underline mt-4 inline-block">
+              {post.lang === 'Español' ? 'Leer más →' : post.lang === 'Français' ? 'Lire la suite →' : 'Read more →'}
             </Link>
           </div>
         ))}
