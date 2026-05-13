@@ -3,8 +3,11 @@ import { useI18n } from '@/app/i18n/I18nProvider';
 
 export default function PrivacidadPage() {
   const { messages } = useI18n() as any;
-  const homeText = (messages?.header?.home || messages?.home || 'home').toLowerCase();
+  
+  const rawHome = messages?.header?.home || messages?.home || 'home';
+  const homeText = typeof rawHome === 'string' ? rawHome.toLowerCase() : 'home';
 
+  // Contenido por defecto: Inglés
   let content = {
     title: "Privacy Policy",
     update: "Last updated: [DD/MM/YYYY]",
@@ -15,23 +18,25 @@ export default function PrivacidadPage() {
     ]
   };
 
-  if (homeText.includes('inicio')) {
+  if (homeText.includes('inicio') || (homeText.includes('accueil') === false && homeText.includes('home') === false)) {
+    // Contenido: Español
     content = {
       title: "Política de Privacidad",
       update: "Última actualización: [DD/MM/AAAA]",
       sections: [
         { t: "1. Responsable del tratamiento", p: "El responsable del tratamiento de los datos personales recabados en este sitio web es [NOMBRE O RAZÓN SOCIAL], con correo de contacto [EMAIL]." },
-        { t: "2. Datos que recopilamos", p: "Podemos recopilar datos identificativos y de contacto que el usuario facilite de forma voluntaria, así como datos técnicos de navegación." },
+        { t: "2. Datos que recopilamos", p: "Podemos recopilar datos identificativos y de contacto que el usuario facilite de forma voluntaria, así como datos técnicos de navegación (dirección IP, tipo de navegador, páginas visitadas y tiempos de acceso)." },
         { t: "3. Finalidad del tratamiento", p: "Los datos se utilizan para gestionar consultas, mejorar la experiencia de usuario, elaborar estadísticas de uso y cumplir obligaciones legales." }
       ]
     };
   } else if (homeText.includes('accueil') || homeText.includes('bienvenue')) {
+    // Contenido: Francés
     content = {
       title: "Politique de Confidentialité",
       update: "Dernière mise à jour : [JJ/MM/AAAA]",
       sections: [
         { t: "1. Responsable du traitement", p: "Le responsable du traitement des données personnelles collectées sur ce site internet est [NOM OU RAISON SOCIALE], avec l'adresse e-mail de contact [EMAIL]." },
-        { t: "2. Données collectées", p: "Nous pouvons collecter des données d'identification et de contact fournies volontairement par l'utilisateur, ainsi que des données de navigation techniques." },
+        { t: "2. Données collectées", p: "Nous pouvons collecter des données d'identification et de contact fournies volontairement par l'utilisateur, ainsi que des données de navigation techniques (adresse IP, type de navigateur, pages visitées et temps d'accès)." },
         { t: "3. Finalité du traitement", p: "Les données sont utilisées pour gérer les demandes, améliorer l'expérience utilisateur, établir des statistiques d'utilisation et respecter les obligations légales." }
       ]
     };
@@ -42,6 +47,7 @@ export default function PrivacidadPage() {
       <div className="bg-white p-8 md:p-12 shadow-sm rounded-xl border border-slate-100">
         <h1 className="text-3xl font-extrabold text-emerald-600 mb-2">{content.title}</h1>
         <p className="text-xs text-slate-400 mb-8">{content.update}</p>
+        
         <div className="space-y-6">
           {content.sections.map((section, idx) => (
             <section key={idx}>

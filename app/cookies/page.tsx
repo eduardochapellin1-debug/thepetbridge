@@ -3,21 +3,26 @@ import { useI18n } from '@/app/i18n/I18nProvider';
 
 export default function CookiesPage() {
   const { messages } = useI18n() as any;
-  const homeText = (messages?.header?.home || messages?.home || 'home').toLowerCase();
+  
+  const rawHome = messages?.header?.home || messages?.home || 'home';
+  const homeText = typeof rawHome === 'string' ? rawHome.toLowerCase() : 'home';
 
+  // Contenido por defecto: Inglés
   let content = {
     title: "Cookies Policy",
     update: "Last updated: [DD/MM/YYYY]",
     p1: "Our website uses cookies to improve your user experience and analyze traffic. By continuing to browse, you accept our use of cookies."
   };
 
-  if (homeText.includes('inicio')) {
+  if (homeText.includes('inicio') || (homeText.includes('accueil') === false && homeText.includes('home') === false)) {
+    // Contenido: Español
     content = {
       title: "Política de Cookies",
       update: "Última actualización: [DD/MM/AAAA]",
       p1: "Nuestro sitio web utiliza cookies para mejorar su experiencia de usuario y analizar el tráfico. Al continuar navegando, acepta nuestro uso de cookies."
     };
   } else if (homeText.includes('accueil') || homeText.includes('bienvenue')) {
+    // Contenido: Francés
     content = {
       title: "Politique de Cookies",
       update: "Dernière mise à jour : [JJ/MM/AAAA]",
