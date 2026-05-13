@@ -1,45 +1,37 @@
+'use client';
+import { useI18n } from '@/app/i18n/I18nProvider';
+
 export default function CookiesPage() {
-  const lastUpdate = new Date().toLocaleDateString('es-ES');
+  const { messages } = useI18n() as any;
+  const homeText = (messages?.header?.home || messages?.home || 'home').toLowerCase();
+
+  let content = {
+    title: "Cookies Policy",
+    update: "Last updated: [DD/MM/YYYY]",
+    p1: "Our website uses cookies to improve your user experience and analyze traffic. By continuing to browse, you accept our use of cookies."
+  };
+
+  if (homeText.includes('inicio')) {
+    content = {
+      title: "Política de Cookies",
+      update: "Última actualización: [DD/MM/AAAA]",
+      p1: "Nuestro sitio web utiliza cookies para mejorar su experiencia de usuario y analizar el tráfico. Al continuar navegando, acepta nuestro uso de cookies."
+    };
+  } else if (homeText.includes('accueil') || homeText.includes('bienvenue')) {
+    content = {
+      title: "Politique de Cookies",
+      update: "Dernière mise à jour : [JJ/MM/AAAA]",
+      p1: "Notre site web utilise des cookies pour améliorer votre expérience utilisateur et analyser le trafic. En continuant à naviguer, vous acceptez notre utilisation des cookies."
+    };
+  }
 
   return (
-    <main className="flex-1 bg-emerald-50/40 px-4 py-12 sm:px-6 lg:px-8 pt-24">
-      <section className="mx-auto max-w-4xl rounded-2xl border border-emerald-100 bg-white p-8 shadow-sm sm:p-10">
-        <h1 className="text-3xl font-bold tracking-tight text-emerald-600 sm:text-4xl">
-          Política de Cookies
-        </h1>
-        <p className="mt-4 text-sm text-slate-500">
-          Última actualización: {lastUpdate}
-        </p>
-
-        <div className="prose prose-slate mt-8 max-w-none prose-headings:text-emerald-600 space-y-6 text-slate-600">
-          <div>
-            <h2 className="text-xl font-semibold">1. ¿Qué son las cookies?</h2>
-            <p>
-              Las cookies son pequeños archivos de texto que se almacenan en su navegador cuando visita nuestro sitio web. Ayudan a que la web funcione correctamente y a personalizar su experiencia.
-            </p>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold">2. Tipos de cookies que utilizamos</h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li><strong>Técnicas:</strong> Necesarias para el funcionamiento básico del sitio.</li>
-              <li><strong>De Personalización:</strong> Permiten recordar sus preferencias.</li>
-              <li><strong>De Terceros (Publicidad):</strong> Utilizamos servicios como <strong>Google AdSense</strong> para mostrar anuncios. Estos proveedores pueden usar cookies para mostrar anuncios basados en sus visitas previas.</li>
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="text-xl font-semibold">3. Cómo gestionar las cookies</h2>
-            <p>
-              Usted puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su ordenador.
-            </p>
-          </div>
-
-          <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-100 italic text-sm">
-            Nota: Si bloquea el uso de cookies en su navegador, es posible que algunos servicios o funciones del sitio web no estén disponibles.
-          </div>
-        </div>
-      </section>
+    <main className="max-w-4xl mx-auto px-6 py-12 text-left text-slate-800">
+      <div className="bg-white p-8 md:p-12 shadow-sm rounded-xl border border-slate-100">
+        <h1 className="text-3xl font-extrabold text-emerald-600 mb-2">{content.title}</h1>
+        <p className="text-xs text-slate-400 mb-8">{content.update}</p>
+        <p className="text-sm leading-relaxed text-slate-600">{content.p1}</p>
+      </div>
     </main>
   );
 }
